@@ -1,0 +1,144 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5AB29;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #00573F;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.header-text {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    width: 80px; /* Adjust the width of the logo container */
+    height: 80px; /* Adjust the height of the logo container */
+    background-image: url('yupilogo.png'); /* Path to your logo image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 10px; /* Adjust spacing between logo and text */
+}
+
+.header-title {
+    display: flex;
+    flex-direction: column;
+}
+
+header h1 {
+    font-family: 'Quiapo', sans-serif;
+    font-size: 53px;
+    margin: 0;
+    text-align: left;
+}
+
+header h5 {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 12px;
+    margin: 0;
+    text-align: left;
+}
+
+header button {
+    background-color: #F5AB29;
+    color: rgb(19, 18, 18);
+    font-family: 'OpenSans', sans-serif;
+    border: none;
+    padding: 10px 75px;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-right: 18px;
+    transition: background-color 0.2s ease;
+}
+
+header button:hover {
+    background-color: hsl(357, 79%, 15%);
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Main Content */
+
+
+/* Footer Styles */
+#footer {
+    background-color: #D1D1D1;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.fleft {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width:33%;
+}
+
+.fleft .oble2 {
+    height: 300px;
+    z-index: 1;
+    opacity: 0.3; /* Lower opacity for the Oble.png */
+}
+
+.fleft .fupmlogo {
+    width: 170px;
+    z-index: 2;
+    margin-left: -130px;
+}
+
+.fleft .fyupilogo {
+    width: 175px;
+    z-index: 2;
+}
+
+.fmiddle {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+    justify-content: center;
+    width:34%;
+}
+
+.fright {
+    position: relative;
+    align-items:start;
+    margin-top: -150px;
+    text-align: center;
+    width:33%;
+}
+
+.fright a {
+    text-decoration: none;
+    color: rgb(62, 61, 61);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Quiapo';
+    src: url('Quiapo_Free.ttf') format('truetype');
+    /* Add additional formats if necessary */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('OpenSans-VariableFont_wdth\,wght.ttf') format('truetype'),
+        url('OpenSans-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

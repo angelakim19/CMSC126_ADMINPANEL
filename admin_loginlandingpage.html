@@ -1,116 +1,90 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>yupihomepage</title>
-  <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif; 
-        background-image: url(YUPi_finalbg.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        margin-bottom: 100px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YUPI - UP Mindanao Library Log</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  h3, h1, h2 {
+    text-align: center;
+}
 
-    .logo{
-      margin-left: -150px;
-    }
-    .logo img {
-        width: 80px; 
-    }
+.bungad h3 {
+    color: white;
+    font-family: 'Quiapo', sans-serif;
+    font-size: 125px;
+    line-height: 0;
+    margin-left: -200px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
 
-    .navigation-bar {
-        background-color: #14533c; 
-        height: 80px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.bungad h1 {
+    color: white;
+    font-family: 'Quiapo', sans-serif;
+    font-size: 375px;
+    position: relative;
+    line-height: 0;
+    margin-left: -200px;
+    z-index: 1;
+    text-shadow: 2px 2px 19px rgba(0, 0, 0, 0.5);
+}
 
-    #navigation-container {
-        width: 100%;
-        max-width: 1200px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-    }
-
-    #button ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        display: flex;
-    }
-
-    #button li {
-        margin-left: 40px;
-    }
-
-    #button li:first-child {
-    margin-left: 0; 
-    }
-    #button li a {
-        color: white;
-        text-decoration: none;
-        line-height: 70px;
-        padding: 10px 30px; 
-        border: 2px solid transparent; 
-        border-radius: 50px; 
-        transition: all 0.3s ease;
-    }
-
-    #button li a:hover {
-        background-color: #fff; 
-        color: #352d2f; 
-        border-color: #fff; 
-    }
-
-    .logo-text-container {
-      display: flex;
-      flex-direction: column;
-      
-    }
-
-    .logo-text {
-      color: white;
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 5px; /* Adjust spacing as needed */
-      text-align: left;
-      margin-left: -580px;
-    }
-
-    .sub-text {
-      color: white;
-      font-size: 12px;
-      font-style: italic;
-      margin-left: -580px;
-    }
-  </style>
-</head> 
-
+.oblation-img {
+    position: absolute;
+    top: 30px;
+    right: 200px;
+    z-index: -1;
+    width: 500px; /* Adjust the width as needed */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+}
+</style>
 <body>
-  <div class="navigation-bar">
-    <div id="navigation-container">
-      <div class="logo">
-        <img src="yupilogo.png">
-      </div>
-      <div class="logo-text-container">
-        <span class="logo-text">YUPI</span>
-        <span class="sub-text">UP Mindanao - Library Log</span>
-        <span class="sub-text">Admin Panel</span>
-      </div>
-      <div id="button">
-        <ul>
-          <li><a href="admin_loginpage.html">Log In</a></li>
-        </ul>
-      </div>
+    <header>
+        <div class="header-text">
+            <a href="admin_loginlandingpage.html">
+                <div class="logo-container"></div>
+            </a>
+            <div class="header-title">
+                <h1>YUPI</h1>
+                <h5>UP Mindanao Library Log</h5>
+            </div>
+        </div>
+        <div class="header-buttons">
+            <button type="button" onclick="redirectToLogin()">Log In</button>
+        </div>
+    </header>
+    
+    <div class="bungad">
+        <h1>YUPI</h1>
+        <h3>Admin Panel</h3>
+
+        <img src="Oble.png" alt="Oblations" class="oblation-img">
     </div>
-  </div>
+
+    <footer id="footer">
+        <div class="fleft">
+            <img src="Oble2.png" alt="Oblation2" class="oble2">
+            <img src="UPMInLogo.png" alt="UP Mindanao Logo" class="fupmlogo">
+            <img src="yupilogo.png" alt="YUPI Logo" class="fyupilogo">
+        </div>
+
+        <div class="fmiddle">
+            <h3>University of the Philippines Mindanao</h3>
+            <h5>The University Library, UP Mindanao, Mintal, Tugbok District, Davao City, Philippines</h5>
+            <h5>Contact: (082)295-7025</h5>
+            <h5>Email: library.upmindanao@up.edu.ph</h5>
+
+            <h5>&copy; 2024 University Library, University of the Philippines Mindanao. All Rights Reserved.</h5>
+        </div>
+
+        <div class="fright">
+            <h4>Quick List</h4>
+            <a href="https://alarm.upmin.edu.ph/" >UP Mindanao ALARM</a>
+        </div>
+    </footer>
+
+    <script src="redirect.js"></script>
 </body>
 </html>

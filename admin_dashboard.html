@@ -4,103 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Navigation</title>
-
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif; 
-            background-image: url(YUPI\ Admin\ Panel.png);
-            background-size: cover;
-            background-repeat: no-repeat;
-            margin-bottom: 100px;
-        }
-    
-        .logo{
-          margin-left: -150px;
-        }
-        .logo img {
-            width: 80px; 
-        }
-    
-        .navigation-bar {
-            background-color: #14533c; 
-            height: 80px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    
-        #navigation-container {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-    
-    
-        .logo-text-container {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          margin-left: 10px;
-          
-        }
-    
-        .logo-text {
-          color: white;
-          font-size: 24px;
-          font-weight: bold;
-          margin-bottom: 5px; 
-          text-align: left;
-          margin-right: 1260px;
-        }
-    
-        .sub-text {
-          color: white;
-          font-size: 12px;
-          font-style: italic;
-          margin-right: 60px;
-        }
         .photo-icons {
             display: flex;
-            gap: 110px;
-            align-items: center;
+            padding: 10px 10px;
+            cursor: pointer;
+            border-radius: 50px;
         }
 
         .photo-icon {
             display: flex;
             height: 40px;
             width: 40px;
-            margin-right: -90px;
+            margin-right: 18px;
         }
+
+        h2 {
+          font-family: 'Quiapo', sans-serif;
+          font-size: 125px;
+          color: #070707;
+          margin: 0 0 0 400px;
+          margin-top: -100px;
+          margin-left: 330px;
+        }
+
+        .pattern1 {
+          width: 650px; /* Adjust the width of the logo container */
+          height: auto;
+          margin-left: -150px;
+          z-index: -1;
+        }
+
+        .pattern2cut {
+          position: absolute;
+          right: 10px; /* Move to the right */
+          top: 0; /* Adjust the vertical position */
+          width: 100px; /* Adjust the width to cover the entire width of the container */
+          height: auto; /* Adjust the height to cover the entire height of the container */
+          z-index: -1;
+        }
+
+        .adminnavs {
+          padding: 30px;
+          background-color: #4ef52908;
+          border-radius: 30px;
+          background-image: url('upmlibrary.png'); /* Path to your background image */
+          background-size: cover;
+          background-position: center;
+          color: white; /* Ensure text is readable against the background image */
+          border: 3px solid black;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 20px;
+          width: 80%;
+          margin-left: 70px;
+          margin-bottom: 90px;
+      }
+
+      .adminnavs div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 20px;
+      }
+
+      .adminnavs button {
+        font-family: 'OpenSans', sans-serif;
+        padding: 20px;
+        font-size: 30px;
+        border: 3px solid black;
+        border-radius: 10px;
+        background-color: #a6a6a6;
+        color: rgb(11, 10, 10);
+        cursor: pointer;
+        transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+        width: 80%;
+      }
+
+      .adminnavs button:hover {
+        background-color: rgb(25, 23, 23);
+        transform: scale(1.1);
+        color:antiquewhite;
+        box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.7);
+      }
       </style>
 </head>
 <body>
-    <div class="navigation-bar">
-        <div id="navigation-container">
-          <div class="logo">
-            <img src="yupilogo.png">
+    <header>
+      <div class="header-text">
+          <a href="admin_loginlandingpage.html">
+              <div class="logo-container"></div>
+          </a>
+          <div class="header-title">
+              <h1>YUPI</h1>
+              <h5>UP Mindanao Library Log</h5>
           </div>
-            <div class="logo-text-container">
-                <span class="logo-text">YUPI</span>
-                <span class="sub-text">UP Mindanao - Library Log</span>
-                <span class="sub-text">Admin Panel</span>
-            </div>
-            <div class="photo-icons">
-                <img src="bell.png" class="photo-icon">
-                <img src="option.png" class="photo-icon">
-            </div>
-        </div>
+      </div>
+      <div class="photo-icons">
+        <img src="bell.png" class="photo-icon">
+        <img src="option.png" class="photo-icon">
+      </div>
+    </header>
+
+    <div class="pattern1">
+      <img src="Pattern1.png" alt="pattern1" class="pattern1">
     </div>
 
-    <h1>Library Navigation</h1>
-    <button onclick="window.location.href='user_information_adminpanel.php'">User Information</button>
-    <button onclick="window.location.href='log_records.php'">Log Records</button>
-    <button onclick="window.location.href='borrowedbook&reservation.html'">Borrowed Books & Reservations</button>
-    <button onclick="window.location.href='library_places.html'">Library Places</button>
+    <h2>Admin Panel</h2>
+
+    <div class="pattern2cut">
+      <img src="Pattern2cut.png" alt="Pattern2cut" class="pattern2cut">
+    </div>
+
+    <div class="adminnavs">
+      <div class="userinfo" id="userinfo">
+        <button onclick="window.location.href='user_information_adminpanel.php'">User Information</button>
+      </div>
+
+      <div class="logrec" id="logrec">
+        <button onclick="window.location.href='log_records.php'">Log Records</button>
+      </div>
+          
+      <div class="borrow" id="borrow">
+        <button onclick="window.location.href='borrowedbook&reservation.html'">Borrowed Books & Reservations</button>
+      </div>
+
+      <div class="libplaces" id="libplaces">
+        <button onclick="window.location.href='library_places.html'">Library Places</button>
+      </div>
+     </div>
+
+     <footer id="footer">
+      <div class="fleft">
+          <img src="Oble2.png" alt="Oblation2" class="oble2">
+          <img src="UPMInLogo.png" alt="UP Mindanao Logo" class="fupmlogo">
+          <img src="yupilogo.png" alt="YUPI Logo" class="fyupilogo">
+      </div>
+
+      <div class="fmiddle">
+          <h3>University of the Philippines Mindanao</h3>
+          <h5>The University Library, UP Mindanao, Mintal, Tugbok District, Davao City, Philippines</h5>
+          <h5>Contact: (082)295-7025</h5>
+          <h5>Email: library.upmindanao@up.edu.ph</h5>
+
+          <h5>&copy; 2024 University Library, University of the Philippines Mindanao. All Rights Reserved.</h5>
+      </div>
+
+      <div class="fright">
+          <h4>Quick List</h4>
+          <a href="https://alarm.upmin.edu.ph/" >UP Mindanao ALARM</a>
+      </div>
+  </footer>
+
+  <script src="redirect.js"></script>
 </body>
 </html>
