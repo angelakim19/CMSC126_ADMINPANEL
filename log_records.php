@@ -40,7 +40,7 @@ $sql = "
         clr.ComputerNumber AS clr_computer_number
     FROM users u
     LEFT JOIN coffeelibro_reservations cl ON u.id = cl.reserved_by
-    LEFT JOIN book_reservations br ON u.id = br.user_id
+    LEFT JOIN borrowed_books br ON u.id = br.user_id
     LEFT JOIN museum_reservations mr ON u.id = mr.reserved_by
     LEFT JOIN computer_laboratory clr ON u.id = clr.UserID
 ";
