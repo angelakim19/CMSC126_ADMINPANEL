@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to YUPi University Library</title>
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif; 
+        background-image: url('YUPilogin_bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;       
+        align-items: center;
+        justify-content: center;     
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+    
+    .logo img {
+        width: 80px;
+        margin-left: -150px;
+    }
+
+    .logo-text {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .navigation-bar {
+        background-color: #14533c;
+        height: 80px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+    }
+
+    #navigation-container {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .login-container {
+        background-color: #f8dd8a7a;
+        padding: 30px;
+        border-radius: 10px;
+        margin-top: 300px;
+        margin-left: 900px;
+        text-align: center;
+        width: 400px;
+        height: 300px;
+    }
+
+    .input-container {
+        margin-bottom: 20px;
+        margin-top: 30px;
+    }
+
+    .input-container input {
+        padding: 10px;
+        width: 75%;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-top: 2px;
+    }
+
+    .buttons-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .buttons-container button {
+        padding: 10px 20px;
+        margin: 0 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        background-color: #08542a;
+        color: #fff;
+        transition: background-color 0.3s;
+    }
+
+    .buttons-container button:hover {
+        background-color: #b11e2a;
+    }
+
+    .logo-text-container {
+      display: flex;
+      flex-direction: column;
+      
+    }
+
+    .logo-text {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 5px; /* Adjust spacing as needed */
+      text-align: left;
+      margin-left: -1270px;
+    }
+
+    .sub-text {
+      color: white;
+      font-size: 12px;
+      font-style: italic;
+      margin-left: -1270px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navigation-bar">
+      <div id="navigation-container">
+          <div class="logo">
+              <img src="yupilogo.png" alt="YUPi Logo">
+          </div>
+          <div class="logo-text-container">
+              <span class="logo-text">YUPI</span>
+              <span class="sub-text">UP Mindanao - Library Log</span>
+              <span class="sub-text">Admin Panel</span>
+          </div>
+      </div>
+  </div>
+
+  <div class="login-container">
+      <form action="admin_login.php" method="POST">
+          <div class="input-container">
+              <input type="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="input-container">
+              <input type="password" name="password" placeholder="Enter your password" required>
+          </div>
+          
+          <div class="buttons-container">
+              <button type="button" onclick="window.location.href='admin_loginlandingpage.html'">Cancel</button>
+              <button type="submit">Log In</button>
+          </div>
+      </form>
+  </div>
+</body>
+</html>

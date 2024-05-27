@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Navigation</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif; 
+            background-image: url(YUPI\ Admin\ Panel.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-bottom: 100px;
+        }
+    
+        .logo{
+          margin-left: -150px;
+        }
+        .logo img {
+            width: 80px; 
+        }
+    
+        .navigation-bar {
+            background-color: #14533c; 
+            height: 80px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        #navigation-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+    
+    
+        .logo-text-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-left: 10px;
+          
+        }
+    
+        .logo-text {
+          color: white;
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 5px; 
+          text-align: left;
+          margin-right: 1260px;
+        }
+    
+        .sub-text {
+          color: white;
+          font-size: 12px;
+          font-style: italic;
+          margin-right: 60px;
+        }
+        .photo-icons {
+            display: flex;
+            gap: 110px;
+            align-items: center;
+        }
+
+        .photo-icon {
+            display: flex;
+            height: 40px;
+            width: 40px;
+            margin-right: -90px;
+        }
+      </style>
+</head>
+<body>
+    <div class="navigation-bar">
+        <div id="navigation-container">
+          <div class="logo">
+            <img src="yupilogo.png">
+          </div>
+            <div class="logo-text-container">
+                <span class="logo-text">YUPI</span>
+                <span class="sub-text">UP Mindanao - Library Log</span>
+                <span class="sub-text">Admin Panel</span>
+            </div>
+            <div class="photo-icons">
+                <img src="bell.png" class="photo-icon">
+                <img src="option.png" class="photo-icon">
+            </div>
+        </div>
+    </div>
+
+    <h1>Library Navigation</h1>
+    <button onclick="window.location.href='user_information_adminpanel.php'">User Information</button>
+    <button onclick="window.location.href='log_records.php'">Log Records</button>
+    <button onclick="window.location.href='borrowedbook&reservation.html'">Borrowed Books & Reservations</button>
+    <button onclick="window.location.href='library_places.html'">Library Places</button>
+</body>
+</html>

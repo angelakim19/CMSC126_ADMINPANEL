@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>yupihomepage</title>
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif; 
+        background-image: url(YUPi_finalbg.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-bottom: 100px;
+    }
+
+    .logo{
+      margin-left: -150px;
+    }
+    .logo img {
+        width: 80px; 
+    }
+
+    .navigation-bar {
+        background-color: #14533c; 
+        height: 80px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #navigation-container {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    #button ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+    }
+
+    #button li {
+        margin-left: 40px;
+    }
+
+    #button li:first-child {
+    margin-left: 0; 
+    }
+    #button li a {
+        color: white;
+        text-decoration: none;
+        line-height: 70px;
+        padding: 10px 30px; 
+        border: 2px solid transparent; 
+        border-radius: 50px; 
+        transition: all 0.3s ease;
+    }
+
+    #button li a:hover {
+        background-color: #fff; 
+        color: #352d2f; 
+        border-color: #fff; 
+    }
+
+    .logo-text-container {
+      display: flex;
+      flex-direction: column;
+      
+    }
+
+    .logo-text {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 5px; /* Adjust spacing as needed */
+      text-align: left;
+      margin-left: -580px;
+    }
+
+    .sub-text {
+      color: white;
+      font-size: 12px;
+      font-style: italic;
+      margin-left: -580px;
+    }
+  </style>
+</head> 
+
+<body>
+  <div class="navigation-bar">
+    <div id="navigation-container">
+      <div class="logo">
+        <img src="yupilogo.png">
+      </div>
+      <div class="logo-text-container">
+        <span class="logo-text">YUPI</span>
+        <span class="sub-text">UP Mindanao - Library Log</span>
+        <span class="sub-text">Admin Panel</span>
+      </div>
+      <div id="button">
+        <ul>
+          <li><a href="admin_loginpage.html">Log In</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
