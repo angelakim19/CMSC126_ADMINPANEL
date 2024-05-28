@@ -19,69 +19,11 @@ function calculateEndTime($startTime, $hours) {
     return date('Y-m-d H:i:s', $endTime);
 }
 
-// Function to release expired reservations and update available seats
-function releaseExpiredReservations($conn) {
-    // Get current date and time
-    $currentDateTime = date('Y-m-d H:i:s');
-
-    // SQL query to identify expired reservations
-    $sql = "SELECT * FROM museum_reservations WHERE end_time < '$currentDateTime'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            // Get the number of chairs reserved in the expired reservation
-            $reservedChairs = $row["chairs"];
-
-            // Get the table number for the expired reservation
-            $tableNumber = $row["table_number"];
-
-            // Update the available seats by releasing the chairs
-            $sqlUpdate = "UPDATE museum_reservations SET available = available + $reservedChairs WHERE table_number = $tableNumber";
-            $conn->query($sqlUpdate);
-
-            // Remove the expired reservation from the database
-            $reservationId = $row['reservation_id'];
-            $sqlDelete = "DELETE FROM museum_reservations WHERE reservation_id = $reservationId";
-            $conn->query($sqlDelete);
-        }
-    }
-}
-
-// Call the function to release expired reservations
-releaseExpiredReservations($conn);
-
 // Define the number of tables
 $numTables = 2;
 
 // Define the number of chairs for each table
 $tableChairs = array(7, 7);
-
-// Initialize arrays to store occupied and available seats for each table
-$occupiedSeats = array();
-$availableSeats = array();
-
-// Fetch and calculate occupied and available seats for each table
-for ($i = 1; $i <= $numTables; $i++) {
-    $occupiedSeats[$i] = 0;
-    $availableSeats[$i] = $tableChairs[$i - 1]; // Subtracting 1 to match array index
-
-    // SQL query to fetch reservations for the current table
-    $sql = "SELECT museum_reservations.*, CONCAT(users.lastname, ', ', users.firstname, ' ', users.middlename) AS fullname 
-            FROM museum_reservations 
-            JOIN users ON museum_reservations.reserved_by = users.id 
-            WHERE museum_reservations.table_number = $i";
-    $result = $conn->query($sql);
-
-    // Calculate occupied seats for the current table
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $occupiedSeats[$i] += $row["chairs"];
-        }
-        // Calculate available seats for the current table
-        $availableSeats[$i] -= $occupiedSeats[$i];
-    }
-}
 
 // Displaying reservations for each table in the admin panel
 echo "<h2>Museum Reservations</h2>";
@@ -91,8 +33,22 @@ for ($i = 1; $i <= $numTables; $i++) {
     echo "<table border='1'>";
     echo "<tr><th>Reservation ID</th><th>Reserved By</th><th>Reservation Time</th><th>Hours</th><th>End Time</th><th>Chairs</th><th>Occupied Seats</th><th>Available Seats</th><th>Total Seats</th><th>Action</th></tr>";
 
+    // Fetch and calculate occupied seats for the current table
+    $sqlOccupied = "SELECT SUM(chairs) AS occupied_seats FROM museum_reservations WHERE table_number = $i";
+    $resultOccupied = $conn->query($sqlOccupied);
+
+    if ($resultOccupied->num_rows > 0) {
+        $rowOccupied = $resultOccupied->fetch_assoc();
+        $occupiedSeats = $rowOccupied['occupied_seats'];
+    } else {
+        $occupiedSeats = 0;
+    }
+
     // Calculate total seats for the current table
     $totalSeats = $tableChairs[$i - 1];
+
+    // Calculate available seats for the current table
+    $availableSeats = $totalSeats - $occupiedSeats;
 
     // SQL query to fetch reservations for the current table
     $sql = "SELECT museum_reservations.*, CONCAT(users.lastname, ', ', users.firstname, ' ', users.middlename) AS fullname 
@@ -111,8 +67,8 @@ for ($i = 1; $i <= $numTables; $i++) {
             echo "<td>" . $row["hour"] . "</td>";
             echo "<td>" . $endTime . "</td>";
             echo "<td>" . $row["chairs"] . "</td>";
-            echo "<td>" . $occupiedSeats[$i] . "</td>"; // Occupied seats
-            echo "<td>" . $availableSeats[$i] . "</td>"; // Available seats
+            echo "<td>" . $occupiedSeats . "</td>"; // Occupied seats
+            echo "<td>" . $availableSeats . "</td>"; // Available seats
             echo "<td>" . $totalSeats . "</td>"; // Total Seats
             
             // Edit and Delete buttons
