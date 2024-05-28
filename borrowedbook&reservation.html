@@ -2,6 +2,50 @@
 <html>
 <head>
     <title>Library Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .photo-icons {
+            display: flex;
+            padding: 10px 10px;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+
+        .photo-icon {
+            display: flex;
+            height: 40px;
+            width: 40px;
+            margin-right: 18px;
+        }
+
+        h1 {
+            font-family: 'Quiapo', sans-serif;
+            font-size: 70px;
+            color: #070707;
+            margin: 0 0 0 400px;
+            margin-top: 30px;
+            margin-left: 80px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: left;
+            gap: 30px;
+            padding: 100px;
+        }
+
+        .buttons button {
+            padding: 20px;
+            border-radius: 10px; /* Adding border radius */
+            transition: background-color 0.3s ease; /* Adding transition effect for smooth hover */
+        }
+        
+        .buttons button:hover {
+            background-color: #ccc; /* Change background color on hover */
+        }
+
+
+    </style>
     <script>
         function showBorrowedBooks() {
             // Create a new XMLHttpRequest object
@@ -39,13 +83,52 @@
     </script>
 </head>
 <body>
+    <header>
+        <div class="header-text">
+            <a href="admin_loginlandingpage.html">
+                <div class="logo-container"></div>
+            </a>
+            <div class="header-title">
+                <h1>YUPI</h1>
+                <h5>UP Mindanao Library Log</h5>
+            </div>
+        </div>
+        <div class="photo-icons">
+          <img src="bell.png" class="photo-icon">
+          <img src="option.png" class="photo-icon">
+        </div>
+    </header>
     <h1>Manage the Books Borrowed and Reservations</h1>
-    <div>
+    <div class="buttons">
         <button onclick="showBorrowedBooks()">Borrowed Books</button>
         <button onclick="showReservation()">Reservation</button>
     </div>
     <div id="content">
         <!-- Content will be loaded dynamically here -->
     </div>
+
+    <footer id="footer">
+        <div class="fleft">
+            <img src="Oble2.png" alt="Oblation2" class="oble2">
+            <img src="UPMInLogo.png" alt="UP Mindanao Logo" class="fupmlogo">
+            <img src="yupilogo.png" alt="YUPI Logo" class="fyupilogo">
+        </div>
+  
+        <div class="fmiddle">
+            <h3>University of the Philippines Mindanao</h3>
+            <h5>The University Library, UP Mindanao, Mintal, Tugbok District, Davao City, Philippines</h5>
+            <h5>Contact: (082)295-7025</h5>
+            <h5>Email: library.upmindanao@up.edu.ph</h5>
+  
+            <h5>&copy; 2024 University Library, University of the Philippines Mindanao. All Rights Reserved.</h5>
+        </div>
+  
+        <div class="fright">
+            <h4>Quick List</h4>
+            <a href="https://alarm.upmin.edu.ph/" >UP Mindanao ALARM</a>
+        </div>
+    </footer>
+  
+    <script src="redirect.js"></script>
 </body>
 </html>
