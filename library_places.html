@@ -4,16 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Spaces Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .photo-icons {
+            display: flex;
+            padding: 10px 10px;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+
+        .photo-icon {
+            display: flex;
+            height: 40px;
+            width: 40px;
+            margin-right: 18px;
+        }
+
+        h2 {
+            font-family: 'Quiapo', sans-serif;
+            font-size: 125px;
+            color: #070707;
+            margin: 0 0 0 400px;
+            margin-left: 330px;
+        }
+
+        .pattern2cut {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            width: 100px;
+            height: auto;
+            z-index: -1;
+        }
+
+        .adminnavs {
+            padding: 20px;
+            background-color: #4ef52908;
+            color: white;
+            border: 3px solid black;
+            display: grid;
+            width: 80%;
+            margin-left: 100px;
+            margin-bottom: 90px;
+        }
+
+        .libnavs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-left:70px;
+            margin-top: 10px;
+            margin-bottom: 50px;
+            width: 80%;
+        }
+
+        .libnavs button {
+            font-family: 'OpenSans', sans-serif;
+            padding: 20px;
+            font-size: 30px;
+            border: 3px solid black;
+            border-radius: 10px;
+            background-color: #a6a6a6;
+            color: rgb(11, 10, 10);
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+            width: 80%;
+        }
+
+        .libnavs button:hover {
+            background-color: rgb(25, 23, 23);
+            transform: scale(1.1);
+            color: antiquewhite;
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.7);
+        }
+
+        .admin-dashboard-button {
+            background-color: #464746; /* Change to the desired color */
+            color: white;
+        }
+
+        .admin-dashboard-button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            clear: both;
+            padding: 20px;
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        .fleft, .fmiddle, .fright {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 20px;
+        }
+
+        .fleft img, .fmiddle img, .fright img {
+            width: 100px;
+            margin: 10px;
+        }
+
+        .fmiddle {
+            width: 60%;
+        }
+
+        .fright {
+            width: 20%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Library Spaces</h1>
-    <div>
+    <header>
+        <div class="header-text">
+            <a href="admin_loginlandingpage.html">
+                <div class="logo-container"></div>
+            </a>
+            <div class="header-title">
+                <h1>YUPI</h1>
+                <h5>UP Mindanao Library Log</h5>
+            </div>
+        </div>
+        <div class="photo-icons">
+            <img src="bell.png" class="photo-icon">
+            <img src="option.png" class="photo-icon">
+        </div>
+    </header>
+
+    <div class="pattern2cut">
+        <img src="Pattern2cut.png" alt="Pattern2cut" class="pattern2cut">
+    </div>
+
+    <h2>Library Spaces</h2>
+
+    <div class="libnavs">
         <button onclick="window.location.href = 'reading_area.php'">Reading Area</button>
         <button onclick="window.location.href = 'computer_library.php'">Computer Laboratory</button>
         <button onclick="window.location.href = 'mini_museum.php'">Mini Museum</button>
         <button onclick="window.location.href = 'cafe_libro.php'">Cafe Libro</button>
         <button onclick="window.location.href = 'limito_hall.php'">Limito Hall</button>
+        <button class="admin-dashboard-button" onclick="window.location.href = 'admin_dashboard.html'">Admin Dashboard</button>
     </div>
-     <div><br><button onclick="window.location.href = 'admin_dashboard.html'">Admin Dashboard</button></div>
+
+    <footer id="footer">
+        <div class="fleft">
+            <img src="Oble2.png" alt="Oblation2" class="oble2">
+            <img src="UPMInLogo.png" alt="UP Mindanao Logo" class="fupmlogo">
+            <img src="yupilogo.png" alt="YUPI Logo" class="fyupilogo">
+        </div>
+
+        <div class="fmiddle">
+            <h3>University of the Philippines Mindanao</h3>
+            <h5>The University Library, UP Mindanao, Mintal, Tugbok District, Davao City, Philippines</h5>
+            <h5>Contact: (082)295-7025</h5>
+            <h5>Email: library.upmindanao@up.edu.ph</h5>
+            <h5>&copy; 2024 University Library, University of the Philippines Mindanao. All Rights Reserved.</h5>
+        </div>
+
+        <div class="fright">
+            <h4>Quick List</h4>
+            <a href="https://alarm.upmin.edu.ph/">UP Mindanao ALARM</a>
+        </div>
+    </footer>
+
+    <script src="redirect.js"></script>
 </body>
 </html>

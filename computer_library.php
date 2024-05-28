@@ -2,26 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .photo-icons {
+            display: flex;
+            padding: 10px 10px;
+            cursor: pointer;
+            border-radius: 50px;
         }
+
+        .photo-icon {
+            display: flex;
+            height: 40px;
+            width: 40px;
+            margin-right: 18px;
+        }
+
+        h2 {
+            font-family: 'Quiapo', sans-serif;
+            font-size: 75px;
+            color: #070707;
+            margin: 0 0 0 400px;
+            margin-top: 30px;
+            margin-left: 70px;
+        }
+
+        table {
+            width: 95%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-left: auto; /* Set left margin to auto */
+            margin-right: auto; /* Set right margin to auto */
+        }
+
         table, th, td {
             border: 1px solid black;
         }
+
         th, td {
             padding: 10px;
             text-align: center;
         }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr {
+            background-color: #f9f9f9;
+        }
+
         .edit-fields {
             display: none; /* Hide edit fields by default */
+        }
+
+        .buttons {
+            margin: 20px 20px; /* Adjusted margin */
+            margin-left: auto; /* Move buttons to the right */
+            display: flex; /* Use flexbox for alignment */
+            justify-content: flex-end; /* Align items to the end (right side) */
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: #535151;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .buttons button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
-    <h1>Admin Panel</h1>
+
+    <header>
+        <div class="header-text">
+            <a href="admin_loginlandingpage.html">
+                <div class="logo-container"></div>
+            </a>
+            <div class="header-title">
+                <h1>YUPI</h1>
+                <h5>UP Mindanao Library Log</h5>
+            </div>
+        </div>
+        <div class="photo-icons">
+          <img src="bell.png" class="photo-icon">
+          <img src="option.png" class="photo-icon">
+        </div>
+    </header>
+
+    <h2>Admin Panel</h2>
     <table>
         <tr>
             <th>Computer Number</th>
@@ -120,8 +201,32 @@
         ?>
 
     </table>
-    <div><br><button onclick="window.location.href = 'admin_dashboard.html'">Admin Dashboard</button>
-    <button onclick="window.location.href = 'library_places.html'">Libraray Spaces</button></div>
+    <div class="buttons">
+        <button onclick="window.location.href = 'admin_dashboard.html'">Admin Dashboard</button>
+        <button onclick="window.location.href = 'library_places.html'">Libraray Spaces</button>
+    </div>
+
+    <footer id="footer">
+        <div class="fleft">
+            <img src="Oble2.png" alt="Oblation2" class="oble2">
+            <img src="UPMInLogo.png" alt="UP Mindanao Logo" class="fupmlogo">
+            <img src="yupilogo.png" alt="YUPI Logo" class="fyupilogo">
+        </div>
+  
+        <div class="fmiddle">
+            <h3>University of the Philippines Mindanao</h3>
+            <h5>The University Library, UP Mindanao, Mintal, Tugbok District, Davao City, Philippines</h5>
+            <h5>Contact: (082)295-7025</h5>
+            <h5>Email: library.upmindanao@up.edu.ph</h5>
+  
+            <h5>&copy; 2024 University Library, University of the Philippines Mindanao. All Rights Reserved.</h5>
+        </div>
+  
+        <div class="fright">
+            <h4>Quick List</h4>
+            <a href="https://alarm.upmin.edu.ph/" >UP Mindanao ALARM</a>
+        </div>
+    </footer>
 
     <script>
         function toggleEditFields(computerID) {

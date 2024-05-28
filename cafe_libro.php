@@ -39,15 +39,6 @@
             padding: 15px;
         }
 
-        .pattern4{
-            position: absolute;
-            left: 30px; /* Move to the right */
-            top: 0; /* Adjust the vertical position */
-            width: 240px; /* Adjust the width to cover the entire width of the container */
-            height: auto; /* Adjust the height to cover the entire height of the container */
-            z-index: -1;
-        }
-
         .table-container {
             position: relative;
             width: 30%;
