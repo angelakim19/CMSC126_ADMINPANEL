@@ -114,7 +114,7 @@ $result = $conn->query($sql);
 
         th, td {
             border: 1px solid black;
-            padding: 15px;
+            padding: 9px;
             text-align: left;
             font-size: 14px;
         }
@@ -209,8 +209,9 @@ $result = $conn->query($sql);
         </div>
         <div class="buttons">
             <input type="submit" value="Update Selected Users">
-            <button onclick="goBackone()">Back to Admin Dashboard</button>
-            <button onclick="goBacktwo()">Back to User Information</button>
+            <a href="admin_dashboard.html"><button>Back to Admin Dashboard</button></a>
+            <a href="user_information_adminpanel.php"><button>Back to User Information</button></a>
+
         </div>
     </form>
     
@@ -235,17 +236,6 @@ $result = $conn->query($sql);
             <a href="https://alarm.upmin.edu.ph/" >UP Mindanao ALARM</a>
         </div>
     </footer>
-
-    <script>
-        // Function to navigate back to the admin dashboard
-        function goBackone() {
-            window.location.href = "admin_dashboard.html"; // Replace with the actual URL of your admin dashboard
-        }
-
-        function goBacktwo() {
-            window.location.href = "user_information_adminpanel.php";
-        }
-    </script>
 
   
     <script src="redirect.js"></script>

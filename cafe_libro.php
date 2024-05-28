@@ -36,20 +36,23 @@
             top: 0;
             left: 0;
             margin: 0;
-            padding: 15px;
+            padding: 6px;
+            margin-left: 60px;
         }
 
         .table-container {
             position: relative;
             width: 30%;
-            padding: 20px;
+            padding: 50px;
+            
         }
 
         table {
             width: 30%;
             border-collapse: collapse;
             margin-top: 20px;
-            margin-left: auto; /* Set left margin to auto */
+            margin-top: 20px;
+           margin-left: 90px;
             margin-right: auto; /* Set right margin to auto */
         }
 

@@ -37,7 +37,7 @@ $result = $conn->query($sql);
             color: #070707;
             margin: 0 0 0 400px;
             margin-top: 30px;
-            margin-left: 320px;
+            margin-left: 190px;
         }
 
         .pattern4{
@@ -66,7 +66,7 @@ $result = $conn->query($sql);
         }
 
         th, td {
-            padding: 15px;
+            padding: 8px;
             text-align: left;
         }
 

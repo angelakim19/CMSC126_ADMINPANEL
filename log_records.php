@@ -94,14 +94,14 @@ $result = $conn->query($sql);
             max-width: 95%;
             margin: 0 auto; /* Center the container itself */
             border: 1px solid black;
-            margin-bottom: 30px;
+            margin-bottom: -3-40px;
             max-height: 100%;
         }
 
         table {
             width: 100%; /* Fixed width */
             border-collapse: collapse;
-            margin-left: 1680px;
+            margin-left: 150px;
             
         }
 
@@ -118,6 +118,32 @@ $result = $conn->query($sql);
 
         tr {
             background-color: #f1f1f1;
+        }
+
+        .buttons {
+            margin: 20px 20px; /* Adjusted margin */
+            margin-left: auto; /* Move buttons to the right */
+            display: flex; /* Use flexbox for alignment */
+            justify-content: flex-end; /* Align items to the end (right side) */
+            margin-top: 10px;;
+        }
+
+        .buttons input, .buttons button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: #535151;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .buttons input:hover, .buttons button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -160,7 +186,7 @@ $result = $conn->query($sql);
                 <th>Computer Number</th>
                 <th>Borrowed Date</th>
                 <th>Due Date</th>
-                <th>Borrowed Status</th>
+                
             </tr>
             <?php
             if ($result->num_rows > 0) {
@@ -185,16 +211,20 @@ $result = $conn->query($sql);
                     echo "<td>" . ($row["clr_computer_number"] ?? 'N/A') . "</td>";
                     echo "<td>" . ($row["br_borrowed_date"] ?? 'N/A') . "</td>";
                     echo "<td>" . ($row["br_due_date"] ?? 'N/A') . "</td>";
-                    echo "<td>" . ($row["borrowed_status"] ?? 'N/A') . "</td>";
-                    echo "</tr>";
+                    
                 }
             } else {
                 echo "<tr><td colspan='19'>No user activity found</td></tr>";
             }
             ?>
         </table>
+       
     </div>
+            
 
+    <div class="buttons">          
+            <a href="admin_dashboard.html"><button>Back to Admin Dashboard</button></a>
+        </div>
     <footer id="footer">
         <div class="fleft">
             <img src="Oble2.png" alt="Oblation2" class="oble2">
