@@ -64,45 +64,178 @@ $result = $conn->query($sql);
 <html>
 <head>
     <title>Edit Users</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .photo-icons {
+            display: flex;
+            padding: 10px 10px;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+    
+        .photo-icon {
+             display: flex;
+            height: 40px;
+            width: 40px;
+            margin-right: 18px;
+        }
+
+        h1 {
+            font-family: 'Quiapo', sans-serif;
+            font-size: 60px;
+            color: #070707;
+            margin: 0 0 0 150px;
+            margin-top: 30px;
+            margin-left: 50px;
+        }
+
+        form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: auto;
+        }
+
+        .table-container {
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center content horizontally */
+            overflow: auto;
+            max-width: 95%;
+            margin: 0 auto; /* Center the container itself */
+            border: 1px solid black;
+        }
+
+        table {
+            width: 1200px; /* Fixed width */
+            border-collapse: collapse;
+            margin-left: 500px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .buttons {
+            margin: 20px 20px; /* Adjusted margin */
+            margin-left: auto; /* Move buttons to the right */
+            display: flex; /* Use flexbox for alignment */
+            justify-content: flex-end; /* Align items to the end (right side) */
+        }
+
+        .buttons input, .buttons button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: #535151;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .buttons input:hover, .buttons button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="header-text">
+            <a href="admin_loginlandingpage.html">
+                <div class="logo-container"></div>
+            </a>
+            <div class="header-title">
+                <h1>YUPI</h1>
+                <h5>UP Mindanao Library Log</h5>
+            </div>
+        </div>
+        <div class="photo-icons">
+          <img src="bell.png" class="photo-icon">
+          <img src="option.png" class="photo-icon">
+        </div>
+    </header>
     <h1>Edit User Information</h1>
     <form method="post" action="edit_user.php">
-        <table>
-            <tr>
-                <th>Select</th>
-                <th>Last Name</th>
-                <th>First Name</th>
-                <th>Middle Name</th>
-                <th>Student Number</th>
-                <th>Email</th>
-                <th>College</th>
-                <th>Program</th>
-                <th>Position</th>
-                <th>Phone Number</th>
-                <th>Password</th>
-            </tr>
-            <?php while($row = $result->fetch_assoc()): ?>
+        <div class="table-container">
+            <table>
                 <tr>
-                    <td><input type="checkbox" name="selected_users[]" value="<?php echo $row['id']; ?>"></td>
-                    <td><input type="text" name="lastname_<?php echo $row['id']; ?>" value="<?php echo $row['lastname']; ?>"></td>
-                    <td><input type="text" name="firstname_<?php echo $row['id']; ?>" value="<?php echo $row['firstname']; ?>"></td>
-                    <td><input type="text" name="middlename_<?php echo $row['id']; ?>" value="<?php echo $row['middlename']; ?>"></td>
-                    <td><input type="text" name="studentnumber_<?php echo $row['id']; ?>" value="<?php echo $row['studentnumber']; ?>"></td>
-                    <td><input type="email" name="email_<?php echo $row['id']; ?>" value="<?php echo $row['email']; ?>"></td>
-                    <td><input type="text" name="college_<?php echo $row['id']; ?>" value="<?php echo $row['college']; ?>"></td>
-                    <td><input type="text" name="program_<?php echo $row['id']; ?>" value="<?php echo $row['program']; ?>"></td>
-                    <td><input type="text" name="position_<?php echo $row['id']; ?>" value="<?php echo $row['position']; ?>"></td>
-                    <td><input type="text" name="phonenumber_<?php echo $row['id']; ?>" value="<?php echo $row['phonenumber']; ?>"></td>
-                    <td><input type="password" name="password_<?php echo $row['id']; ?>" value="<?php echo $row['password']; ?>"></td>
+                    <th>Select</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Student Number</th>
+                    <th>Email</th>
+                    <th>College</th>
+                    <th>Program</th>
+                    <th>Position</th>
+                    <th>Phone Number</th>
+                    <th>Password</th>
                 </tr>
-            <?php endwhile; ?>
-        </table>
-        <input type="submit" value="Update Selected Users">
+                <?php while($row = $result->fetch_assoc()): ?>
+                    <tr>
+                        <td><input type="checkbox" name="selected_users[]" value="<?php echo $row['id']; ?>"></td>
+                        <td><input type="text" name="lastname_<?php echo $row['id']; ?>" value="<?php echo $row['lastname']; ?>"></td>
+                        <td><input type="text" name="firstname_<?php echo $row['id']; ?>" value="<?php echo $row['firstname']; ?>"></td>
+                        <td><input type="text" name="middlename_<?php echo $row['id']; ?>" value="<?php echo $row['middlename']; ?>"></td>
+                        <td><input type="text" name="studentnumber_<?php echo $row['id']; ?>" value="<?php echo $row['studentnumber']; ?>"></td>
+                        <td><input type="email" name="email_<?php echo $row['id']; ?>" value="<?php echo $row['email']; ?>"></td>
+                        <td><input type="text" name="college_<?php echo $row['id']; ?>" value="<?php echo $row['college']; ?>"></td>
+                        <td><input type="text" name="program_<?php echo $row['id']; ?>" value="<?php echo $row['program']; ?>"></td>
+                        <td><input type="text" name="position_<?php echo $row['id']; ?>" value="<?php echo $row['position']; ?>"></td>
+                        <td><input type="text" name="phonenumber_<?php echo $row['id']; ?>" value="<?php echo $row['phonenumber']; ?>"></td>
+                        <td><input type="password" name="password_<?php echo $row['id']; ?>" value="<?php echo $row['password']; ?>"></td>
+                    </tr>
+                <?php endwhile; ?>
+            </table>
+        </div>
+        <div class="buttons">
+            <input type="submit" value="Update Selected Users">
+            <button onclick="goBackone()">Back to Admin Dashboard</button>
+            <button onclick="goBacktwo()">Back to User Information</button>
+        </div>
     </form>
+    
+    <footer id="footer">
+        <div class="fleft">
+            <img src="Oble2.png" alt="Oblation2" class="oble2">
+            <img src="UPMInLogo.png" alt="UP Mindanao Logo" class="fupmlogo">
+            <img src="yupilogo.png" alt="YUPI Logo" class="fyupilogo">
+        </div>
+  
+        <div class="fmiddle">
+            <h3>University of the Philippines Mindanao</h3>
+            <h5>The University Library, UP Mindanao, Mintal, Tugbok District, Davao City, Philippines</h5>
+            <h5>Contact: (082)295-7025</h5>
+            <h5>Email: library.upmindanao@up.edu.ph</h5>
+  
+            <h5>&copy; 2024 University Library, University of the Philippines Mindanao. All Rights Reserved.</h5>
+        </div>
+  
+        <div class="fright">
+            <h4>Quick List</h4>
+            <a href="https://alarm.upmin.edu.ph/" >UP Mindanao ALARM</a>
+        </div>
+    </footer>
 
-    <button onclick="goBackone()">Back to Admin Dashboard</button>
-    <button onclick="goBacktwo()">Back to User Information</button>
     <script>
         // Function to navigate back to the admin dashboard
         function goBackone() {
@@ -113,6 +246,9 @@ $result = $conn->query($sql);
             window.location.href = "user_information_adminpanel.php";
         }
     </script>
+
+  
+    <script src="redirect.js"></script>
 </body>
 </html>
 

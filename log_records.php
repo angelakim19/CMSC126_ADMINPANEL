@@ -55,76 +55,169 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Activity Log</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .photo-icons {
+            display: flex;
+            padding: 10px 10px;
+            cursor: pointer;
+            border-radius: 50px;
         }
-        table, th, td {
+    
+        .photo-icon {
+             display: flex;
+            height: 40px;
+            width: 40px;
+            margin-right: 18px;
+        }
+
+        h1, h2 {
+            font-family: 'Quiapo', sans-serif;
+            font-size: 60px;
+            color: #070707;
+            margin: 0 0 0 150px;
+            margin-top: 30px;
+            margin-left: 50px;
+        }
+
+        form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .table-container {
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center content horizontally */
+            overflow: auto;
+            max-width: 95%;
+            margin: 0 auto; /* Center the container itself */
             border: 1px solid black;
-            padding: 8px;
-            text-align: center;
+            margin-bottom: 30px;
+            max-height: 100%;
         }
+
+        table {
+            width: 100%; /* Fixed width */
+            border-collapse: collapse;
+            margin-left: 1680px;
+            
+        }
+
         th, td {
+            border: 1px solid black;
+            padding: 15px;
             text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr {
+            background-color: #f1f1f1;
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="header-text">
+            <a href="admin_loginlandingpage.html">
+                <div class="logo-container"></div>
+            </a>
+            <div class="header-title">
+                <h1>YUPI</h1>
+                <h5>UP Mindanao Library Log</h5>
+            </div>
+        </div>
+        <div class="photo-icons">
+          <img src="bell.png" class="photo-icon">
+          <img src="option.png" class="photo-icon">
+        </div>
+    </header>
+
     <h2>User Activity Log</h2>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Cafe Libro Reservation Time</th>
-            <th>Cafe Libro Hours</th>
-            <th>Cafe Libro End Time</th>
-            <th>Cafe Libro Chairs</th>
-            <th>Cafe Libro Table Number</th>
-            <th>Museum Reservation Time</th>
-            <th>Museum Hours</th>
-            <th>Museum End Time</th>
-            <th>Museum Chairs</th>
-            <th>Museum Table Number</th>
-            <th>Computer Lab Reservation Time</th>
-            <th>Computer Lab Duration</th>
-            <th>Computer Lab End Time</th>
-            <th>Computer Number</th>
-            <th>Borrowed Date</th>
-            <th>Due Date</th>
-            <th>Borrowed Status</th>
-        </tr>
-        <?php
-        if ($result->num_rows > 0) {
-            // Output data of each row
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["user_id"] . "</td>";
-                echo "<td>" . $row["user_name"] . "</td>";
-                echo "<td>" . ($row["cl_reservation_time"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["cl_hour"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["cl_end_time"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["cl_chairs"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["cl_table_number"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["mr_reservation_time"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["mr_hour"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["mr_end_time"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["mr_chairs"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["mr_table_number"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["clr_reservation_time"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["clr_duration"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["clr_end_time"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["clr_computer_number"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["br_borrowed_date"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["br_due_date"] ?? 'N/A') . "</td>";
-                echo "<td>" . ($row["borrowed_status"] ?? 'N/A') . "</td>";
-                echo "</tr>";
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Cafe Libro Reservation Time</th>
+                <th>Cafe Libro Hours</th>
+                <th>Cafe Libro End Time</th>
+                <th>Cafe Libro Chairs</th>
+                <th>Cafe Libro Table Number</th>
+                <th>Museum Reservation Time</th>
+                <th>Museum Hours</th>
+                <th>Museum End Time</th>
+                <th>Museum Chairs</th>
+                <th>Museum Table Number</th>
+                <th>Computer Lab Reservation Time</th>
+                <th>Computer Lab Duration</th>
+                <th>Computer Lab End Time</th>
+                <th>Computer Number</th>
+                <th>Borrowed Date</th>
+                <th>Due Date</th>
+                <th>Borrowed Status</th>
+            </tr>
+            <?php
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["user_id"] . "</td>";
+                    echo "<td>" . $row["user_name"] . "</td>";
+                    echo "<td>" . ($row["cl_reservation_time"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["cl_hour"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["cl_end_time"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["cl_chairs"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["cl_table_number"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["mr_reservation_time"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["mr_hour"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["mr_end_time"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["mr_chairs"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["mr_table_number"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["clr_reservation_time"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["clr_duration"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["clr_end_time"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["clr_computer_number"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["br_borrowed_date"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["br_due_date"] ?? 'N/A') . "</td>";
+                    echo "<td>" . ($row["borrowed_status"] ?? 'N/A') . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='19'>No user activity found</td></tr>";
             }
-        } else {
-            echo "<tr><td colspan='19'>No user activity found</td></tr>";
-        }
-        ?>
-    </table>
+            ?>
+        </table>
+    </div>
+
+    <footer id="footer">
+        <div class="fleft">
+            <img src="Oble2.png" alt="Oblation2" class="oble2">
+            <img src="UPMInLogo.png" alt="UP Mindanao Logo" class="fupmlogo">
+            <img src="yupilogo.png" alt="YUPI Logo" class="fyupilogo">
+        </div>
+  
+        <div class="fmiddle">
+            <h3>University of the Philippines Mindanao</h3>
+            <h5>The University Library, UP Mindanao, Mintal, Tugbok District, Davao City, Philippines</h5>
+            <h5>Contact: (082)295-7025</h5>
+            <h5>Email: library.upmindanao@up.edu.ph</h5>
+  
+            <h5>&copy; 2024 University Library, University of the Philippines Mindanao. All Rights Reserved.</h5>
+        </div>
+  
+        <div class="fright">
+            <h4>Quick List</h4>
+            <a href="https://alarm.upmin.edu.ph/" >UP Mindanao ALARM</a>
+        </div>
+    </footer>
+
+    <script src="redirect.js"></script>
 </body>
 </html>
 
